@@ -1,0 +1,92 @@
+@font-face {
+    font-family: 'Gilroy';
+    src: url(../public/assets/fonts/Gilroy-Regular.otf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url(../public/assets/fonts/Gilroy-Medium.otf) format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url(../public/assets/fonts/Gilroy-Semibold.otf) format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url(../public/assets/fonts/Gilroy-Bold.otf) format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url(../public/assets/fonts/Gilroy-Heavy.otf) format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url(../public/assets/fonts/Gilroy-Extrabold.otf) format('truetype');
+    font-weight: bolder;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url(../public/assets/fonts/Gilroy-ThinItalic.otf) format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url(../public/assets/fonts/Gilroy-LightItalic.otf) format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url(../public/assets/fonts/Gilroy-MediumItalic.otf) format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url(../public/assets/fonts/Gilroy-ExtraboldItalic.otf)
+        format('truetype');
+    font-weight: bolder;
+    font-style: italic;
+}
+
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+    background: #2d2d30;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #727080;
+    border-radius: 4px;
+    width: 8px !important;
+    height: 8px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #727080;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    height: 30px !important;
+}
+
+::-webkit-scrollbar-thumb:vertical:hover {
+    height: 20px !important;
+}
