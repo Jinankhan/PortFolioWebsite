@@ -13,6 +13,8 @@ export interface IFormStateProps {
 
 export const useSignUpValidation = () => {
     const SLACK_API = process.env.REACT_APP_SLACK_API as string;
+    console.log('rrr');
+    console.log(process.env.REACT_APP_SLACK_API as string, 'env');
     const defaultFormValues = {
         name: '',
         email: '',
