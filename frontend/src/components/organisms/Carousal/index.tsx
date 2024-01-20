@@ -12,6 +12,7 @@ const Carousal = ({ ...props }: ICarousalProps) => {
     const CarousalContainer = animated(Box);
     const [activeIndex, setActiveIndex] = useState(0);
 
+    const isMaxWidth340 = useMediaQuery('(max-width:400px)');
     const slideIn = useSpring({
         opacity: 1,
         display: 'flex',
@@ -49,7 +50,10 @@ const Carousal = ({ ...props }: ICarousalProps) => {
                         props.carousalList.length;
                     setActiveIndex(newIndex);
                 }}
-                sx={{ width: 40, height: 40 }}
+                sx={{
+                    width: isMaxWidth340 ? 20 : 40,
+                    height: isMaxWidth340 ? 20 : 40
+                }}
             />
             <CarousalContainer
                 style={{
@@ -58,9 +62,9 @@ const Carousal = ({ ...props }: ICarousalProps) => {
                 }}
                 sx={{
                     width: !isMaxWidth1500 ? 450 : 700,
-                    height: 600,
+                    height: 500,
                     '@media (max-width: 536px)': {
-                        width: 310
+                        width: 326
                     }
                 }}
                 key={props.carousalList[activeIndex].id}
@@ -75,7 +79,10 @@ const Carousal = ({ ...props }: ICarousalProps) => {
                             (prevIndex + 1) % props.carousalList.length
                     )
                 }
-                sx={{ width: 40, height: 40 }}
+                sx={{
+                    width: isMaxWidth340 ? 20 : 40,
+                    height: isMaxWidth340 ? 20 : 40
+                }}
             />
         </Box>
     );

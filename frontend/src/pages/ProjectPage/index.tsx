@@ -1,7 +1,7 @@
 import React from 'react';
 import CommonTemplate from '../../components/templates/CommonTemplate';
 import Carousal from '../../components/organisms/Carousal';
-import { PROJECT_LIST } from '../../utils/constants';
+import { PROJECT_LIST, PROJECT_PAGE } from '../../utils/constants';
 import Cards from '../../components/molecules/Card';
 
 const ProjectPage = () => {
@@ -23,8 +23,8 @@ const ProjectPage = () => {
     return (
         <CommonTemplate
             content={<Carousal carousalList={data} />}
-            heading="Projects"
-            subHeading="Have a look on some of the projects i worked on"
+            heading={PROJECT_PAGE.heading}
+            subHeading={PROJECT_PAGE.subHeading}
             id="projects"
         />
     );

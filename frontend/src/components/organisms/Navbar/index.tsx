@@ -1,5 +1,5 @@
 import { Box, useMediaQuery } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NAVBAR_ELEMENTS } from '../../../utils/constants';
 import Typography from '../../atoms/Typography';
 import Icon from '../../atoms/Icon';
@@ -125,8 +125,11 @@ const Navbar = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    background: 'black',
-                    color: 'white'
+                    background: 'rgba(0,0,0,0.9)',
+                    color: 'white',
+                    position: 'sticky',
+                    zIndex: 999,
+                    top: 0
                 }}
             >
                 <Box

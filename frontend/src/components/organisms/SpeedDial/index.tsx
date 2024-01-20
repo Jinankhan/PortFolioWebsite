@@ -34,10 +34,6 @@ const ControlledOpenSpeedDial = ({ ...props }: ISpeedDialProps) => {
                         icon={action.icon}
                         tooltipTitle={action.name}
                         onClick={() => handleIconClick(action.link)}
-                        sx={{
-                            background:
-                                'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)'
-                        }}
                     />
                 ))}
             </SpeedDial>

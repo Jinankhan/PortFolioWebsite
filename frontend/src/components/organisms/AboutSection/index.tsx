@@ -4,7 +4,7 @@ import { Box, Stack } from '@mui/material';
 import { animated, useSpring } from '@react-spring/web';
 import innovation from '../../../../public/assets/icons/innovation.svg';
 import Icon from '../../atoms/Icon';
-import { ARRAY } from '../../../utils/constants';
+import { ABOUT_SECTION, ROLE_LIST } from '../../../utils/constants';
 const AboutSection = () => {
     const [positionX2, setPositionX2] = useState(0);
 
@@ -29,7 +29,7 @@ const AboutSection = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setActiveRole((prevRole) => (prevRole + 1) % ARRAY.length);
+            setActiveRole((prevRole) => (prevRole + 1) % ROLE_LIST.length);
         }, 2000);
 
         return () => clearInterval(interval);
@@ -70,17 +70,25 @@ const AboutSection = () => {
                             variant="title2"
                             style={styles}
                             sx={{
-                                marginBottom: '20px'
+                                marginBottom: '20px',
+                                '@media (max-width :885px)': {
+                                    fontSize: 40
+                                }
                             }}
                         >
-                            Hi ! I`M Jinan, a
+                            {ABOUT_SECTION.title}
                         </AnimatedText>
 
                         <Typography
                             variant="title"
-                            color={ARRAY[activeRole].color}
+                            color={ROLE_LIST[activeRole].color}
+                            sx={{
+                                '@media (max-width :575px)': {
+                                    fontSize: 60
+                                }
+                            }}
                         >
-                            {ARRAY[activeRole].role} Developer
+                            {ROLE_LIST[activeRole].role} Developer
                         </Typography>
                     </Stack>
 
@@ -123,7 +131,7 @@ const AboutSection = () => {
                         justifyContent: 'center',
                         alignItems: 'center',
                         borderRadius: '50%',
-                        background: ARRAY[activeRole].color
+                        background: ROLE_LIST[activeRole].color
                     }}
                 >
                     <Icon src={innovation} sx={{ width: 330, height: 330 }} />

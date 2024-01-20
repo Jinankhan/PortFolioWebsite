@@ -29,7 +29,7 @@ const SkillContainer = () => {
                     '@media (max-width: 700px)': {
                         gridTemplateColumns: 'repeat(1, 1fr)'
                     },
-                    padding: '30px'
+                    paddingTop: '30px'
                 }}
             >
                 {props.content.map((item) => {
@@ -86,7 +86,7 @@ const SkillContainer = () => {
     return (
         <Box
             sx={{
-                padding: '50px 200px 100px 200px',
+                padding: '50px 184px 100px 184px',
                 color: 'white',
                 display: 'flex',
                 justifyContent: 'center',

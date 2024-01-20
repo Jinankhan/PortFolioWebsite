@@ -1,5 +1,10 @@
 import { Box } from '@mui/material';
-import { ACTIONS, CONTACT_ME_FIELDS } from '../../../utils/constants';
+import {
+    ACTIONS,
+    CONTACT_ME,
+    CONTACT_ME_FIELDS,
+    EMOTICON_STATE
+} from '../../../utils/constants';
 import TextField from '../../atoms/TextField';
 import Button from '../../atoms/Button';
 import React from 'react';
@@ -11,11 +16,6 @@ const ContactMe = () => {
     const { handleFieldChange, formState, validateButton, handleSubmit } =
         useSignUpValidation();
 
-    console.log(formState);
-    console.log(validateButton());
-
-    const ErrorState = ['😊', ' 😞'];
-
     return (
         <>
             <Box
@@ -24,16 +24,9 @@ const ContactMe = () => {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    flexDirection: 'column',
                     padding: '80px'
                 }}
             >
-                <Box>
-                    <Typography variant="h6">
-                        Fill the form carefully!
-                        {validateButton() ? ErrorState[0] : ErrorState[1]}
-                    </Typography>
-                </Box>
                 <Box
                     sx={{
                         gap: '20px',
@@ -48,8 +41,8 @@ const ContactMe = () => {
                     {CONTACT_ME_FIELDS.map((field) => {
                         return (
                             <TextField
-                                placeholder={field.placeholder}
                                 key={field.id}
+                                placeholder={field.placeholder}
                                 multiline={field.name === 'message'}
                                 rows={field.name === 'message' ? 5 : 0}
                                 name={field.name}
@@ -69,6 +62,15 @@ const ContactMe = () => {
                                         `${field.name}Error` as keyof IFormStateProps
                                     ]
                                 }
+                                endAdornment={
+                                    <Typography variant="h6">
+                                        {formState[
+                                            `${field.name}Error` as keyof IFormStateProps
+                                        ] === ''
+                                            ? EMOTICON_STATE[0]
+                                            : EMOTICON_STATE[1]}
+                                    </Typography>
+                                }
                             />
                         );
                     })}
@@ -78,7 +80,7 @@ const ContactMe = () => {
                             disabled={!validateButton()}
                             onClick={handleSubmit}
                         >
-                            Launch message
+                            {CONTACT_ME.message}
                         </Button>
                     </Box>
                 </Box>

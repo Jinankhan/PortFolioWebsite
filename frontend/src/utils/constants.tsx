@@ -47,7 +47,7 @@ export const ACTIONS = [
         link: 'https://discord.com'
     }
 ];
-export const ARRAY = [
+export const ROLE_LIST = [
     { color: '#2ecc71', role: 'Front-end' }, // Orange
     { color: '#3498db', role: 'Back-end' }, // Blue
     { color: '#8e44ad', role: 'Full-stack' } // Purple
@@ -255,4 +255,36 @@ export const FORM_ERRORS = {
     nameError: 'name length should be more than 2',
     emailError: 'provide a valid email',
     messageEror: 'message should not exceed 20 characters'
+};
+
+export const CONTACT_PAGE = {
+    heading: 'Contact Me',
+    subHeading: 'You can also connect with me'
+};
+
+export const PROJECT_PAGE = {
+    heading: 'Projects',
+    subHeading: 'Have a look on some of the projects i worked on'
+};
+export const SKILL_PAGE = {
+    heading: 'Skills',
+    subHeading: 'I like to build and craft scalable products'
+};
+
+export const SUMMARY_PAGE = {
+    heading: 'Responsibility',
+    subHeading: 'I make sure your website is running always'
+};
+export const CONTACT_ME = {
+    message: 'Launch Message 🚀',
+    formTitle: 'Fill the form carefully!'
+};
+
+export const EMOTICON_STATE = ['😊', '😞'];
+
+export const ABOUT_SECTION = {
+    title: 'Hi ! I`M Jinan,',
+    role: '',
+    summary:
+        'Passionate about crafting impactful digital experiences with a blend of design finesse and clean code.'
 };
