@@ -29,7 +29,7 @@ const SkillContainer = () => {
                     '@media (max-width: 700px)': {
                         gridTemplateColumns: 'repeat(1, 1fr)'
                     },
-                    paddingTop: '30px'
+                    padding: '30px'
                 }}
             >
                 {props.content.map((item) => {
