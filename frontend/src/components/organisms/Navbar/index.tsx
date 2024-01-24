@@ -1,5 +1,5 @@
 import { Box, useMediaQuery } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { NAVBAR_ELEMENTS } from '../../../utils/constants';
 import Typography from '../../atoms/Typography';
 import Icon from '../../atoms/Icon';
@@ -85,6 +85,7 @@ const Navbar = () => {
                                 to={item.path}
                                 smooth={true}
                                 duration={1000}
+                                offset={-165}
                                 onClick={() =>
                                     setState({ ...state, right: false })
                                 }
@@ -183,6 +184,7 @@ const Navbar = () => {
                                                 to={item.path}
                                                 smooth={true}
                                                 duration={1000}
+                                                offset={-165}
                                             >
                                                 {item.name}
                                             </Link>
