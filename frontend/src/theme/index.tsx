@@ -370,6 +370,10 @@ const theme = createTheme({
         MuiTabs: {
             styleOverrides: {
                 root: () => ({
+                    '& .MuiTabs-scroller': {
+                        display: 'flex',
+                        justifyContent: 'center'
+                    },
                     '.MuiTabs-flexContainer': {
                         gap: theme.spacing(3),
 
