@@ -360,7 +360,7 @@ const theme = createTheme({
                         width: theme.spacing(39.5)
                     },
                     '&.Mui-selected': {
-                        background: theme.palette.primary.alphaPurple600,
+                        background: 'white',
                         color: theme.palette.primary.alphaPurple400,
                         borderColor: theme.palette.primary.alphaPurple400
                     }

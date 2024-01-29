@@ -50,7 +50,7 @@ const config: Configuration = {
                 ]
             },
             {
-                test: /\.(jpe?g|png|gif|svg)(\?[a-z0-9=.]+)?$/,
+                test: /\.(jpe?g|png|gif|svg|jpg)(\?[a-z0-9=.]+)?$/,
                 use: [
                     {
                         loader: 'url-loader',

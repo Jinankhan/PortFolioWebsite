@@ -3,12 +3,12 @@ import React from 'react';
 import raisedHand from '../../../../public/assets/icons/raised.svg';
 import Typography from '../../atoms/Typography';
 import Icon from '../../atoms/Icon';
+import background from '../../../../public/assets/icons/background.jpg';
 const Footer = () => {
     return (
         <Box
             sx={{
                 height: '100px',
-                background: 'black',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',

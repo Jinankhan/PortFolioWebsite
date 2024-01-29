@@ -7,6 +7,7 @@ import {
     TESTING_SKILLS,
     VERSIONING_SKILLS
 } from '../../../utils/constants';
+import background from '../../../../public/assets/icons/background.jpg';
 import Icon from '../../atoms/Icon';
 
 interface IContentProps {
@@ -43,7 +44,7 @@ const SkillContainer = () => {
                                 padding: 10,
                                 borderTopLeftRadius: '10px',
                                 borderBottomRightRadius: '10px',
-                                background: '#3A3A3D',
+                                backgroundColor: 'rgba(255, 255, 255, 0.2)',
                                 justifyContent: 'center',
                                 alignItems: 'center'
                             }}
@@ -95,7 +96,8 @@ const SkillContainer = () => {
         >
             <Box
                 sx={{
-                    background: '#262529',
+                    background: `url(${background}) center center`,
+                    backgroundSize: 'cover',
                     padding: '10px 80px 80px 80px',
                     display: 'flex',
                     flexDirection: 'column',

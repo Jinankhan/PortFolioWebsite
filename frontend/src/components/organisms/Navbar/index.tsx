@@ -1,5 +1,5 @@
 import { Box, useMediaQuery } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { NAVBAR_ELEMENTS } from '../../../utils/constants';
 import Typography from '../../atoms/Typography';
 import Icon from '../../atoms/Icon';
@@ -14,7 +14,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import menu from '../../../../public/assets/icons/menu.svg';
-
+import theme from '../../../theme';
 const Navbar = () => {
     const AnimatedBox = animated(Box);
     const [styles, api] = useSpring(() => ({
@@ -29,43 +29,30 @@ const Navbar = () => {
     const handleMouseLeave = () => {
         api.start({ scale: 1 });
     };
-    type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
     const navStyles = useSpring({
         from: { y: -100 },
         to: { y: 0 }
     });
 
-    const [state, setState] = React.useState({
-        top: false,
-        left: false,
-        bottom: false,
-        right: false
-    });
-
+    const [state, setState] = React.useState(false);
     const isMaxWidth1500 = useMediaQuery('(min-width:1500px)');
-    const toggleDrawer =
-        (anchor: Anchor, open: boolean) =>
-        (event: React.KeyboardEvent | React.MouseEvent) => {
-            if (
-                event &&
-                event.type === 'keydown' &&
-                ((event as React.KeyboardEvent).key === 'Tab' ||
-                    (event as React.KeyboardEvent).key === 'Shift')
-            ) {
-                return;
-            }
 
-            setState({ ...state, [anchor]: open });
-        };
+    const [activeItem, setActiveItem] = useState('about');
+    const toggleDrawer = (open: boolean) => {
+        setState(open);
+    };
 
-    const list = (anchor: Anchor) => (
+    const handleNavigation = (path: string) => {
+        setActiveItem((prev) => (prev === path ? prev : path));
+    };
+    const list = () => (
         <Box
             sx={{
-                width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250
+                width: 250
             }}
-            onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}
+            onClick={() => toggleDrawer(false)}
+            onKeyDown={() => toggleDrawer(false)}
         >
             <List>
                 {NAVBAR_ELEMENTS.map((item) => (
@@ -86,13 +73,16 @@ const Navbar = () => {
                                 smooth={true}
                                 duration={1000}
                                 offset={-165}
-                                onClick={() =>
-                                    setState({ ...state, right: false })
-                                }
+                                onClick={() => setState(false)}
                             >
                                 <Typography
                                     variant="h6"
-                                    color="text.lowEmphasis"
+                                    color={
+                                        activeItem === item.path
+                                            ? 'text.highEmphasis'
+                                            : 'text.lowEmphasis'
+                                    }
+                                    onClick={() => handleNavigation(item.path)}
                                 >
                                     {item.name}
                                 </Typography>
@@ -107,9 +97,9 @@ const Navbar = () => {
         <>
             <SwipeableDrawer
                 anchor={'right'}
-                open={state['right']}
-                onClose={toggleDrawer('right', false)}
-                onOpen={toggleDrawer('right', true)}
+                open={state}
+                onClose={() => toggleDrawer(false)}
+                onOpen={() => toggleDrawer(true)}
                 sx={{
                     '& .MuiDrawer-paper': {
                         background: '#19181C',
@@ -118,7 +108,7 @@ const Navbar = () => {
                     }
                 }}
             >
-                {list('right')}
+                {list()}
             </SwipeableDrawer>
 
             <Box
@@ -173,18 +163,25 @@ const Navbar = () => {
                                             padding: '14px',
                                             borderRadius: '10px',
                                             background:
-                                                'rgba(255, 255, 255, 0.1)'
+                                                activeItem === item.path
+                                                    ? theme.palette.primary
+                                                          .alphaPurple500
+                                                    : 'rgba(255, 255, 255, 0.1)',
+                                            cursor: 'pointer'
                                         }}
+                                        onClick={() =>
+                                            handleNavigation(item.path)
+                                        }
                                     >
-                                        <Typography
-                                            variant="h3"
-                                            sx={{ cursor: 'pointer' }}
-                                        >
+                                        <Typography variant="h3">
                                             <Link
                                                 to={item.path}
                                                 smooth={true}
                                                 duration={1000}
                                                 offset={-165}
+                                                onClick={() =>
+                                                    handleNavigation(item.path)
+                                                }
                                             >
                                                 {item.name}
                                             </Link>
@@ -196,7 +193,7 @@ const Navbar = () => {
                     )}
 
                     {!isMaxWidth1500 && (
-                        <Button onClick={toggleDrawer('right', true)}>
+                        <Button onClick={() => toggleDrawer(true)}>
                             <Icon src={menu} sx={{ width: 40, height: 40 }} />
                         </Button>
                     )}
