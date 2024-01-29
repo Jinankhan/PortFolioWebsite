@@ -1,4 +1,4 @@
-import { Box, Divider } from '@mui/material';
+import { Box } from '@mui/material';
 import React from 'react';
 import Typography from '../../atoms/Typography';
 
@@ -7,6 +7,7 @@ interface ICommonTemplateProps {
     heading?: string;
     subHeading?: string;
     id?: string;
+    background?: string;
 }
 const CommonTemplate = ({ ...props }: ICommonTemplateProps) => {
     return (
@@ -14,7 +15,9 @@ const CommonTemplate = ({ ...props }: ICommonTemplateProps) => {
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                background: `url(${props.background}) center center`,
+                backgroundSize: 'cover'
             }}
             id={props.id}
         >
@@ -37,7 +40,6 @@ const CommonTemplate = ({ ...props }: ICommonTemplateProps) => {
                 </Typography>
             </Box>
             {props.content}
-            <Divider />
         </Box>
     );
 };

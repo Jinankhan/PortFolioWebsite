@@ -39,7 +39,8 @@ const Carousal = ({ ...props }: ICarousalProps) => {
             sx={{
                 display: 'flex',
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
+                padding: 45
             }}
         >
             <Icon

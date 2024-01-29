@@ -323,7 +323,7 @@ const theme = createTheme({
         MuiDivider: {
             styleOverrides: {
                 root: () => ({
-                    background: theme.palette.borders.highEmp,
+                    background: 'rgba(255,255,255,0.6)',
                     height: theme.spacing(0.25),
                     borderColor: 'transparent',
                     opacity: 0.3

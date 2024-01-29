@@ -2,6 +2,7 @@ import { Box, Paper } from '@mui/material';
 import React from 'react';
 import Navbar from '../../organisms/Navbar';
 import Footer from '../../molecules/Footer';
+
 interface ILandingTempLateProps {
     slots: { content: React.ReactNode; id: number }[];
 }
@@ -17,6 +18,7 @@ const LandingTemplate = ({ ...props }: ILandingTempLateProps) => {
             }}
         >
             <Navbar />
+
             {props.slots.map((slot) => {
                 return <Box key={slot.id}>{slot.content}</Box>;
             })}

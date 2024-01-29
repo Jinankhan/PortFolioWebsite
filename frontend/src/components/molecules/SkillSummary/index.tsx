@@ -10,7 +10,8 @@ const SkillSummary = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                padding: '120px 40px 120px 40px'
+                padding: '120px 40px 120px 40px',
+                marginBottom: 15
             }}
         >
             <Box

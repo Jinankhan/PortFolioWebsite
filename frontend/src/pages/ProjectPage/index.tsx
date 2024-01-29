@@ -3,6 +3,7 @@ import CommonTemplate from '../../components/templates/CommonTemplate';
 import Carousal from '../../components/organisms/Carousal';
 import { PROJECT_LIST, PROJECT_PAGE } from '../../utils/constants';
 import Cards from '../../components/molecules/Card';
+import background from '../../../public/assets/icons/background3.svg';
 
 const ProjectPage = () => {
     const data = PROJECT_LIST.map((item) => {
@@ -26,6 +27,7 @@ const ProjectPage = () => {
             heading={PROJECT_PAGE.heading}
             subHeading={PROJECT_PAGE.subHeading}
             id="projects"
+            background={background}
         />
     );
 };

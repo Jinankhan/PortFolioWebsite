@@ -24,7 +24,7 @@ const ContactMe = () => {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    padding: '80px'
+                    padding: '80px 0 260px 0'
                 }}
             >
                 <Box

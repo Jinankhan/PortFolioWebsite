@@ -54,7 +54,7 @@ const AboutSection = () => {
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     width: '85%',
-                    '@media (max-width :885px)': {
+                    '@media (max-width :1229px)': {
                         flexWrap: 'wrap',
                         justifyContent: 'center'
                     }
@@ -71,6 +71,7 @@ const AboutSection = () => {
                             style={styles}
                             sx={{
                                 marginBottom: '20px',
+                                fontSize: 160,
                                 '@media (max-width :885px)': {
                                     fontSize: 40
                                 }
@@ -96,6 +97,7 @@ const AboutSection = () => {
                         variant="h5"
                         color="text.lowEmphasis"
                         style={styles3}
+                        sx={{ fontSize: '1.9rem' }}
                     >
                         Passionate about crafting impactful digital experiences
                         with a blend of design finesse and clean code.
@@ -125,8 +127,8 @@ const AboutSection = () => {
                     }}
                     style={styles2}
                     sx={{
-                        width: 300,
-                        height: 300,
+                        width: 370,
+                        height: 370,
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
@@ -134,7 +136,7 @@ const AboutSection = () => {
                         background: ROLE_LIST[activeRole].color
                     }}
                 >
-                    <Icon src={innovation} sx={{ width: 330, height: 330 }} />
+                    <Icon src={innovation} sx={{ width: 368, height: 400 }} />
                 </AnimatedBox>
             </Box>
         </Box>
