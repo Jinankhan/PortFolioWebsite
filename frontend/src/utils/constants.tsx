@@ -288,3 +288,9 @@ export const ABOUT_SECTION = {
     summary:
         'Passionate about crafting impactful digital experiences with a blend of design finesse and clean code.'
 };
+
+export const EMAIL_API = 'https://api.emailjs.com/api/v1.0/email/send';
+export const SERVICE_ID = 'service_oopivwh';
+export const TEMPLATE_ID = 'template_ezk66wc';
+export const USER_ID = 'iA_X6-KXrRw3EEien';
+export const RECIPIENT_EMAIL = 'malicecoma@gmail.com';

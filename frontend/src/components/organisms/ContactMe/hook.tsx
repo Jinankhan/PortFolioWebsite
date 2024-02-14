@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { FORM_ERRORS } from '../../../utils/constants';
+import {
+    EMAIL_API,
+    FORM_ERRORS,
+    RECIPIENT_EMAIL,
+    SERVICE_ID,
+    TEMPLATE_ID,
+    USER_ID
+} from '../../../utils/constants';
 import axios from 'axios';
 
 export interface IFormStateProps {
@@ -12,10 +19,6 @@ export interface IFormStateProps {
 }
 
 export const useSignUpValidation = () => {
-    const SLACK_API = process.env.REACT_APP_SLACK_API as string;
-    console.log('rrr');
-
-    console.log(process.env.REACT_APP_SLACK_API as string, 'env');
     const defaultFormValues = {
         name: '',
         email: '',
@@ -63,18 +66,18 @@ export const useSignUpValidation = () => {
     };
 
     const data = {
-        blocks: [
-            {
-                type: 'section',
-                text: {
-                    type: 'mrkdwn',
-                    text: `*:pilot:${formState.name}. ${formState.email}*\n ${formState.message}.`
-                }
-            }
-        ]
+        service_id: SERVICE_ID,
+        template_id: TEMPLATE_ID,
+        user_id: USER_ID,
+        template_params: {
+            from_name: formState.name,
+            from_email: formState.email,
+            message: formState.message,
+            to_name: RECIPIENT_EMAIL
+        }
     };
     const handleSubmit = () => {
-        axios.post(SLACK_API, JSON.stringify(data));
+        axios.post(EMAIL_API, data);
     };
 
     const validateButton = () => {
